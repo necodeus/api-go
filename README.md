@@ -2,7 +2,7 @@
 
 ## Description
 
-Web API for my apps but *written in Go* made for learning purposes.
+Web API for my apps but *written in Go* for learning purposes.
 
 [» Here is the API in PHP. «](https://github.com/necodeus/api)
 
