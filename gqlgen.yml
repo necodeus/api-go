@@ -15,6 +15,7 @@ resolver:
   package: graph
   filename_template: "{name}.resolvers.go"
 autobind:
+  - "necodeo.com/m/v2/graph/model"
 models:
   ID:
     model:
@@ -27,3 +28,7 @@ models:
       - github.com/99designs/gqlgen/graphql.Int
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
+  Todo:
+    fields:
+      user:
+        resolver: true
