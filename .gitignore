@@ -1,4 +1,4 @@
 .env
-graphql/generated
-graphql/models
-graphql/user.resolvers.go
+# graphql/generated
+# graphql/models
+# graphql/user.resolvers.go
