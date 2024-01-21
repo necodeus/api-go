@@ -7,7 +7,8 @@ import (
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
-	"necodeo.com/m/v2/graph"
+	"necodeo.com/m/v2/graphql"
+	"necodeo.com/m/v2/graphql/generated"
 )
 
 func GraphRoutes(r *mux.Router) {
@@ -16,7 +17,7 @@ func GraphRoutes(r *mux.Router) {
 	for _, domain := range domains {
 		subRouter := r.Host(domain).Subrouter()
 
-		srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
+		srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graphql.Resolver{}}))
 
 		subRouter.HandleFunc("/", playground.Handler("GraphQL playground", "/query")).Methods("GET")
 
