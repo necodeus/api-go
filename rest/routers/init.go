@@ -6,7 +6,10 @@ import (
 
 func InitRoutes() *mux.Router {
 	r := mux.NewRouter()
-	CommonApiRoutes(r)
-	PaperApiRoutes(r)
+
+	ImagesRoutes(r)
+	BlogApiRoutes(r)
+	GraphRoutes(r)
+
 	return r
 }

@@ -4,22 +4,27 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/joho/godotenv"
-	"necodeo.com/m/v2/db"
-	"necodeo.com/m/v2/routers"
+	env "github.com/joho/godotenv"
+	"necodeo.com/m/v2/helpers"
+	"necodeo.com/m/v2/rest/routers"
 )
 
 func main() {
-	err := godotenv.Load()
+	// Load .env file
+	err := env.Load()
 
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
 
-	db.InitDB()
-	defer db.DB.Close()
+	// Database
+	helpers.InitDB()
+	defer helpers.DB.Close()
 
+	// REST Routes
 	router := routers.InitRoutes()
+
+	// Start server
 	log.Println("Server is running on port 8080")
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

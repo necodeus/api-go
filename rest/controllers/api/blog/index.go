@@ -1,10 +1,10 @@
-package paper_api
+package blog
 
 import (
 	"encoding/json"
 	"net/http"
 
-	"necodeo.com/m/v2/db"
+	"necodeo.com/m/v2/helpers"
 )
 
 type Post struct {
@@ -16,7 +16,8 @@ type Post struct {
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	rows, err := db.DB.Query("SELECT id, title, content FROM b_posts")
+	rows, err := helpers.DB.Query("SELECT id, title, content FROM b_posts")
+
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
