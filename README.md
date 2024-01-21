@@ -13,5 +13,9 @@ Web API for my apps *written in Go* for learning purposes.
 ## Usage
 
 ```bash
-go run main.go
+# Generate the GraphQL files
+go run github.com/99designs/gqlgen generate
+
+# Run the server
+go run server.go
 ```
